@@ -2,6 +2,7 @@ age
 atuin
 btop
 bat
+build-base
 chezmoi
 clipboard
 cosign
@@ -21,7 +22,9 @@ neofetch
 neovim
 npm
 plocate
-python3
+python3-dev
+py3-pip
+poetry
 ripgrep
 speedtest-cli
 starship
@@ -29,3 +32,4 @@ vimdiff
 wl-clipboard
 zellij
 zstd
+zoxide

@@ -26,6 +26,7 @@ python3-dev
 py3-pip
 poetry
 ripgrep
+ranger
 speedtest-cli
 starship
 vimdiff

@@ -6,10 +6,13 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="jorge.castro@gmail.com"
 
 COPY extra-packages /
+COPY pip-packages /
 RUN apk update && \
     apk upgrade && \
-    grep -v '^#' /extra-packages | xargs apk add
-RUN rm /extra-packages
+    grep -v '^#' /extra-packages | xargs apk add && \
+    pip3 install --upgrade pip && \
+    grep -v '^#' /pip-packages | xargs pip3 install
+RUN rm /extra-packages /pip-packages
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \

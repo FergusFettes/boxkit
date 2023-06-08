@@ -3,7 +3,7 @@ atuin
 btop
 bat
 build-base
-chezmoi
+# chezmoi
 clipboard
 cosign
 dbus-x11
@@ -14,6 +14,7 @@ fzf
 github-cli
 helix
 just
+jq
 make
 micro
 ncdu
@@ -29,6 +30,7 @@ ripgrep
 ranger
 speedtest-cli
 starship
+stow
 vimdiff
 wl-clipboard
 zellij

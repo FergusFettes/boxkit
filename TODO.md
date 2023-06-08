@@ -1,0 +1,2 @@
+- make one with https://github.com/jmbuhr/quarto-nvim-kickstarter
+- setup containerfiles

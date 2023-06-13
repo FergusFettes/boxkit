@@ -14,12 +14,9 @@ RUN apk update && \
     grep -v '^#' /pip-packages | xargs pip3 install
 RUN rm /extra-packages /pip-packages
 
-RUN git clone https://github.com/fergusfettes/dotfiles
-RUN make -C dotfiles install
+RUN git clone https://github.com/fergusfettes/dotfiles && echo fdsiaadfadf
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \ 
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree && \
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
+      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman

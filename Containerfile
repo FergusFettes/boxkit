@@ -14,7 +14,7 @@ RUN apk update && \
     grep -v '^#' /pip-packages | xargs pip3 install
 RUN rm /extra-packages /pip-packages
 
-RUN git clone https://github.com/fergusfettes/dotfiles && echo fdsiaadfadf
+RUN git clone https://github.com/fergusfettes/dotfiles
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \

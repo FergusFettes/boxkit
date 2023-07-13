@@ -15,6 +15,9 @@ RUN apk update && \
 RUN rm /extra-packages /pip-packages
 
 RUN git clone https://github.com/fergusfettes/dotfiles
+RUN curl -L --create-dirs git.io/antigen -o ~/.config/personal/antigen.zsh
+RUN	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN git clone https://github.com/b4b4r07/enhancd ~/enhancd
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \

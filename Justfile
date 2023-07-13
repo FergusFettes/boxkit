@@ -10,6 +10,9 @@ build:
 pull:
   docker pull {{ FULL_IMAGE }}
 
+ppull:
+  podman pull {{ FULL_IMAGE }}
+
 push:
   docker push {{ FULL_IMAGE }}
 

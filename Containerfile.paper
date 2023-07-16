@@ -1,0 +1,3 @@
+FROM ghcr.io/fergusfettes/shell:latest
+
+COPY --from=ctheory/alpine-ipfs:latest /usr/local/bin/ipfs /usr/bin/ipfs

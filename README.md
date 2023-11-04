@@ -1,5 +1,9 @@
 # Fergus Fettes Boxkit
 
+Plan is to use boxkits for terminal environments so I don't get lost so often.
+
+# Original README
+
 See [here](https://github.com/ublue-os/boxkit) for original README.
 
 - Starts with the latest Alpine image from the [Toolbx Community Images](https://github.com/toolbx-images/images)

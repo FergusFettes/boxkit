@@ -3,6 +3,7 @@ NAMESPACE := "fergusfettes"
 IMAGE := "boxkit"
 TAG := "latest"
 FULL_IMAGE := URL + NAMESPACE + "/" + IMAGE + ":" + TAG
+BOXTOOL := "distrobox" # or "toolbox"
 
 # Note: env vars need to be set first, aka `just TAG=123 image`
 
@@ -28,4 +29,13 @@ new_token:
   echo Get a new token here https://github.com/settings/tokens/new?scopes=write:packages
 
 create:
-  toolbox create -i {{ FULL_IMAGE }}
+  {{ BOXTOOL }} create -i {{ FULL_IMAGE }}
+
+delete:
+  {{ BOXTOOL }} rm -f {{ IMAGE }}-{{ TAG }}
+
+enter:
+  {{ BOXTOOL }} enter {{ IMAGE }}-{{ TAG }}
+
+stop:
+  podman stop {{ IMAGE }}-{{ TAG }}

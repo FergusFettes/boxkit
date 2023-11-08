@@ -11,6 +11,15 @@ RUN apk update && \
     grep -v '^#' /extra-packages | xargs apk add
 RUN rm /extra-packages
 
+COPY pip-packages /
+RUN \
+     apk update && \
+     apk upgrade && \
+     python3 -m venv /venv && \
+     . /venv/bin/activate && \
+     grep -v '^#' /pip-packages | xargs /venv/bin/pip install
+RUN rm /pip-packages
+
 # Save zsh stuff locally for install
 RUN mkdir /distrobox/
 RUN git clone https://github.com/fergusfettes/dotfiles /distrobox/dotfiles

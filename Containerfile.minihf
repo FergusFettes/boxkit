@@ -1,8 +1,8 @@
 FROM ghcr.io/fergusfettes/boxkit:latest
 
-RUN git clone https://github.com/fergusfettes/minihf /distrobox/dotfiles
-RUN apk update && \
-    apk upgrade && \
-    pip3 install --upgrade pip && \
-    grep -v '^#' /pip-packages | xargs pip3 install
-RUN rm /pip-packages
+RUN git clone https://github.com/fergusfettes/minihf /distrobox/minihf
+RUN \
+     apk update && \
+     apk upgrade && \
+     . /venv/bin/activate && \
+     pip install -r /distrobox/minihf/requirements.txt

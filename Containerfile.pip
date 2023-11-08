@@ -1,8 +1,13 @@
 FROM ghcr.io/fergusfettes/boxkit:latest
 
 COPY pip-packages /
-RUN apk update && \
-    apk upgrade && \
-    pip3 install --upgrade pip && \
-    grep -v '^#' /pip-packages | xargs pip3 install
+RUN \
+     apk update && \
+     apk upgrade
+RUN \
+     pip install --upgrade pip
+RUN \
+     python3 -m venv /venv && \
+     . /venv/bin/activate && \
+     grep -v '^#' /pip-packages | xargs /venv/bin/pip install
 RUN rm /pip-packages

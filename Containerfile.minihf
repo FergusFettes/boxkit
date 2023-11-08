@@ -1,8 +1,6 @@
 FROM ghcr.io/fergusfettes/boxkit:latest
 
-
-
-COPY pip-packages /
+RUN git clone https://github.com/fergusfettes/minihf /distrobox/dotfiles
 RUN apk update && \
     apk upgrade && \
     pip3 install --upgrade pip && \

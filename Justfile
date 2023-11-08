@@ -3,7 +3,7 @@ NAMESPACE := "fergusfettes"
 IMAGE := "boxkit"
 TAG := "latest"
 FULL_IMAGE := URL + NAMESPACE + "/" + IMAGE + ":" + TAG
-BOXTOOL := "distrobox" # or "toolbox"
+BOXTOOL := "toolbox" # or "distrobox"
 
 # Note: env vars need to be set first, aka `just TAG=123 image`
 

@@ -116,7 +116,7 @@ jobs:
       # Push the image to GHCR (Image Registry)
       - name: Push To GHCR Minihf
         uses: redhat-actions/push-to-registry@v2
-        id: push
+        id: push_minihf
         env:
           REGISTRY_USER: ${{ github.actor }}
           REGISTRY_PASSWORD: ${{ github.token }}

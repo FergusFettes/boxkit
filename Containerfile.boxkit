@@ -29,6 +29,7 @@ RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && \
     unzip ngrok-stable-linux-amd64.zip && \
     mv ngrok /distrobox/ngrok && \
     rm ngrok-stable-linux-amd64.zip
+COPY setup.sh /distrobox/setup.sh
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \

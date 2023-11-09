@@ -100,3 +100,31 @@ jobs:
       - name: Echo outputs
         run: |
           echo "${{ toJSON(steps.push.outputs) }}"
+
+      # Build image using Buildah action
+      - name: Build Image Minihf
+        id: build_image_minihf
+        uses: redhat-actions/buildah-build@v2
+        with:
+          containerfiles: |
+            ./Containerfile.minihf
+          image: minihf
+          tags: ${{ env.IMAGE_TAGS }}
+          labels: ${{ steps.meta.outputs.labels }}
+          oci: false
+          
+      # Push the image to GHCR (Image Registry)
+      - name: Push To GHCR Minihf
+        uses: redhat-actions/push-to-registry@v2
+        id: push
+        env:
+          REGISTRY_USER: ${{ github.actor }}
+          REGISTRY_PASSWORD: ${{ github.token }}
+        with:
+          image: ${{ steps.build_image_minihf.outputs.image }}
+          tags: ${{ steps.build_image_minihf.outputs.tags }}
+          registry: ${{ steps.registry_case.outputs.lowercase }}
+          username: ${{ env.REGISTRY_USER }}
+          password: ${{ env.REGISTRY_PASSWORD }}
+          extra-args: |
+            --disable-content-trust

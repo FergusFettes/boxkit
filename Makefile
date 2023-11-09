@@ -10,7 +10,7 @@ install:
 	add-apt-repository ppa:jgmath2000/et -y
 	apt-get update
 	echo "Added ET package\n\nInstalling packages..."
-	apt-get install -y podman podman-toolbox mosh et
+	-apt-get install -y podman podman-toolbox mosh et
 	echo "Installed packages\n\nInstalling snaps..."
 	snap install ngrok
 	snap install --edge --classic just
